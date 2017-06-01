@@ -7,7 +7,7 @@
 #ifndef DAY2DAYREINFORCEMENTC_TRIAL_H
 #define DAY2DAYREINFORCEMENTC_TRIAL_H
 
-#endif //DAY2DAYREINFORCEMENTC_TRIAL_H
+
 #include <cstddef>
 #include <iostream>
 #include<string>
@@ -80,3 +80,5 @@ public:
     //returns number of times one rat opens
     size_t totalOpensByOneRat(size_t rat);
 };
+
+#endif

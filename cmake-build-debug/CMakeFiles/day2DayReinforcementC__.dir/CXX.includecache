@@ -1,0 +1,54 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/masonlab/Documents/2017 - HZS converted scripts/day2DayReinforcementC++/Rat.cpp
+Rat.h
+C:/Users/masonlab/Documents/2017 - HZS converted scripts/day2DayReinforcementC++/Rat.h
+
+C:/Users/masonlab/Documents/2017 - HZS converted scripts/day2DayReinforcementC++/Rat.h
+cstddef
+-
+iostream
+-
+vector
+-
+sstream
+-
+algorithm
+-
+
+C:/Users/masonlab/Documents/2017 - HZS converted scripts/day2DayReinforcementC++/Trial.cpp
+Trial.h
+C:/Users/masonlab/Documents/2017 - HZS converted scripts/day2DayReinforcementC++/Trial.h
+
+C:/Users/masonlab/Documents/2017 - HZS converted scripts/day2DayReinforcementC++/Trial.h
+array
+-
+cstddef
+-
+iostream
+-
+string
+-
+sstream
+-
+Rat.h
+C:/Users/masonlab/Documents/2017 - HZS converted scripts/day2DayReinforcementC++/Rat.h
+
+C:/Users/masonlab/Documents/2017 - HZS converted scripts/day2DayReinforcementC++/main.cpp
+iostream
+-
+fstream
+-
+stdlib.h
+-
+Rat.h
+C:/Users/masonlab/Documents/2017 - HZS converted scripts/day2DayReinforcementC++/Rat.h
+Trial.h
+C:/Users/masonlab/Documents/2017 - HZS converted scripts/day2DayReinforcementC++/Trial.h
+

@@ -6,8 +6,6 @@
 #ifndef DAY2DAYREINFORCEMENTC_RAT_H
 #define DAY2DAYREINFORCEMENTC_RAT_H
 
-#endif //DAY2DAYREINFORCEMENTC_RAT_H
-
 #include <cstddef>
 #include <iostream>
 #include <vector>
@@ -74,3 +72,5 @@ public:
     //returns if rat opens on specific day of trial
     bool opensOnDate(size_t day);
 };
+
+#endif

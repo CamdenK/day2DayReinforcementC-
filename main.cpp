@@ -20,8 +20,8 @@ int main() {
 
     cout<<"How many iterations?";
     cin>>numIterations;
-    Trial run;
-    run = readInput(run,input);
+    Trial temp;
+    Trial run = readInput(temp,input);
 
     vector<double> dayDifference;
     vector<double> ratDifference;
@@ -42,6 +42,18 @@ int main() {
 
     cout<<"Probability of sequential opening for original data: " << origProb <<endl;
     cout<<"Probability of sequential opening based off of simulation: " << averageItProb << endl;
+
+    //calculate extreme values
+    size_t numExtreme = 0;
+    for(size_t iter = 0; iter < numIterations; iter++)
+    {
+        if(abs(iterationProbability[iter] - averageItProb) >= abs(origProb - averageItProb))
+        {
+            numExtreme++;
+        }
+    }
+
+    cout<<"P - value:"<<(double) numExtreme / numIterations<<endl;
 }
 
 std::string getFileName()
@@ -56,7 +68,7 @@ std::string getFileName()
         cout<<"File could not be found";
         return getFileName();
     }
-    
+
     return fileName;
 }
 
