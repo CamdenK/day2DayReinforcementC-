@@ -12,12 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ae62636-7dd1-446c-8eb8-9e06ee319ef0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rat.cpp" afterPath="$PROJECT_DIR$/Rat.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rat.h" afterPath="$PROJECT_DIR$/Rat.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Trial.cpp" afterPath="$PROJECT_DIR$/Trial.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Trial.h" afterPath="$PROJECT_DIR$/Trial.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -46,8 +42,8 @@
           <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="836">
-                  <caret line="89" column="12" lean-forward="false" selection-start-line="89" selection-start-column="12" selection-end-line="89" selection-end-column="12" />
+                <state relative-caret-position="590">
+                  <caret line="58" column="4" lean-forward="false" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="4" />
                   <folding>
                     <element signature="e#0#19#0" expanded="true" />
                   </folding>
@@ -58,8 +54,8 @@
           <file leaf-file-name="Rat.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Rat.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1241">
-                  <caret line="73" column="51" lean-forward="false" selection-start-line="73" selection-start-column="51" selection-end-line="73" selection-end-column="51" />
+                <state relative-caret-position="768">
+                  <caret line="54" column="21" lean-forward="false" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
                   <folding>
                     <element signature="e#190#208#0" expanded="true" />
                   </folding>
@@ -70,8 +66,8 @@
           <file leaf-file-name="Trial.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Trial.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="578">
-                  <caret line="34" column="5" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+                <state relative-caret-position="-9">
+                  <caret line="43" column="15" lean-forward="false" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="15" />
                   <folding />
                 </state>
               </provider>
@@ -84,8 +80,8 @@
           <file leaf-file-name="Rat.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Rat.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1264">
-                  <caret line="116" column="46" lean-forward="false" selection-start-line="116" selection-start-column="46" selection-end-line="116" selection-end-column="46" />
+                <state relative-caret-position="289">
+                  <caret line="65" column="22" lean-forward="false" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="22" />
                   <folding />
                 </state>
               </provider>
@@ -107,16 +103,21 @@
       </split-second>
     </splitter>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>set</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Rat.h" />
         <option value="$PROJECT_DIR$/Trial.h" />
         <option value="$PROJECT_DIR$/Trial.cpp" />
         <option value="$PROJECT_DIR$/Rat.cpp" />
+        <option value="$PROJECT_DIR$/Rat.h" />
         <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
@@ -379,12 +380,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1496243991446</updated>
-      <workItem from="1496243996967" duration="12833000" />
+      <workItem from="1496243996967" duration="17472000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12833000" />
+    <option name="totallyTimeSpent" value="17472000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -441,34 +442,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Trial.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="5" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+        <state relative-caret-position="-9">
+          <caret line="43" column="15" lean-forward="false" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rat.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="65" column="22" lean-forward="false" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Rat.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="73" column="51" lean-forward="false" selection-start-line="73" selection-start-column="51" selection-end-line="73" selection-end-column="51" />
+        <state relative-caret-position="768">
+          <caret line="54" column="21" lean-forward="false" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
           <folding>
             <element signature="e#190#208#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Rat.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1264">
-          <caret line="116" column="46" lean-forward="false" selection-start-line="116" selection-start-column="46" selection-end-line="116" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="89" column="12" lean-forward="false" selection-start-line="89" selection-start-column="12" selection-end-line="89" selection-end-column="12" />
+        <state relative-caret-position="590">
+          <caret line="58" column="4" lean-forward="false" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="4" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

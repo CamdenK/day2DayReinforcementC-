@@ -8,7 +8,10 @@ std::string getFileName();
 Trial readInput(Trial orig, std::ifstream file);
 
 //for each iteration returns a double of probability of sequential opening
-double iteration(vector<double> dayDifference, vector<double> ratDifference, Trial run);
+vector<double> iteration(vector<double> dayDifference, vector<double> ratDifference, Trial run, size_t numIterations);
+
+//calculate sequential open probability for data of 1's and 0's where 1 is open, 0 is non open
+double sequentialOpeningProb(vector<int> openData);
 
 int main() {
     string fileName = getFileName();
@@ -22,7 +25,6 @@ int main() {
 
     vector<double> dayDifference;
     vector<double> ratDifference;
-    vector<double> iterationProbability;
 
     for(size_t index = 0; index < run.getExperimentLength();index++)
     {
@@ -33,10 +35,13 @@ int main() {
         ratDifference.push_back(double(run.totalOpensByOneRat(rat))/ run.totalNumOpenings());
     }
 
-    for(size_t iter = 0; iter < numIterations; iter++)
-    {
-        iterationProbability.push_back(iteration(dayDifference,ratDifference,run));
-    }
+    vector<double> iterationProbability =(iteration(dayDifference,ratDifference,run,numIterations));
+
+    double origProb = run.totalConsecutiveOpenings()/run.totalNumOpenings();
+    double averageItProb = accumulate(iterationProbability.begin(), iterationProbability.end(), 0.0) / iterationProbability.size();
+
+    cout<<"Probability of sequential opening for original data: " << origProb <<endl;
+    cout<<"Probability of sequential opening based off of simulation: " << averageItProb << endl;
 }
 
 std::string getFileName()
@@ -51,7 +56,7 @@ std::string getFileName()
         cout<<"File could not be found";
         return getFileName();
     }
-
+    
     return fileName;
 }
 
@@ -65,30 +70,46 @@ Trial readInput(Trial orig, std::ifstream file)
     return orig;
 }
 
-double iteration(vector<double> dayDifference, vector<double> ratDifference, Trial run)
+vector<double> iteration(vector<double> dayDifference, vector<double> ratDifference, Trial run,size_t numIterations)
 {
-    size_t numOpens = 0;
-    size_t sequetialOpens = 0;
     vector<int> randomRat;
+    vector<double> out;
 
-    for(size_t rat = 0; rat < ratDifference.size(); rat++)
-    {
-        for(size_t day = 0; day < dayDifference.size(); day++)
-        {
-            if((double)rand() / RAND_MAX >= dayDifference[day] * ratDifference[rat] * run.totalNumOpenings())
-            {
-                randomRat.push_back(0);
+    for(size_t iter = 0; iter < numIterations; iter++) {
+        for (size_t rat = 0; rat < ratDifference.size(); rat++) {
+            randomRat.clear();
+            for (size_t day = 0; day < dayDifference.size(); day++) {
+                if ((double) rand() / RAND_MAX >= dayDifference[day] * ratDifference[rat] * run.totalNumOpenings()) {
+                    randomRat.push_back(0);
+                } else {
+                    randomRat.push_back(1);
+                }
             }
-            else
-            {
-                randomRat.push_back(1);
-            }
-        }
-
-        for(size_t day = 0; day < dayDifference.size(); day++)
-        {
-            
+            out.push_back(sequentialOpeningProb(randomRat));
         }
     }
+
+    return out;
 }
 
+double sequentialOpeningProb(vector<int> openData)
+{
+    size_t numOpens = 0;
+    size_t sequentialOpens = 0;
+    for(size_t day = 0; day < openData.size()-1; day++)
+    {
+        if(openData[day] == 1)
+        {
+            numOpens++;
+            if(openData[day +1] == 1)
+            {
+                sequentialOpens++;
+            }
+        }
+    }
+    if(openData[openData.size()-1] == 1)
+    {
+        numOpens++;
+    }
+    return (double)numOpens/sequentialOpens;
+}

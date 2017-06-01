@@ -52,10 +52,10 @@ public:
     void setExperimentLength(size_t newLength);
 
     //set the openTimes from a comma delimited string
-    void setOpenTimesFromString(std::string in);
+    void setOpenTimes(std::string in);
 
     //set openTimes from a vector of ints
-    void setOpenTimesFromVect(std::vector<int> in);
+    void setOpenTimes(std::vector<int> in);
 
     //sets the condition for the rat
     void setCondition(string cond);

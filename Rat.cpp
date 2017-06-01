@@ -20,7 +20,7 @@ Rat::Rat(std::string in): experimentLength(40), openDay(0), condition(in)
 //ctor with all fields
 Rat::Rat(size_t expLength, std::string cond, std::string time): experimentLength(expLength),condition(cond)
 {
-    setOpenTimesFromString(time);
+    setOpenTimes(time);
 }
 
 bool Rat::isOpener() const {
@@ -63,7 +63,7 @@ size_t Rat::numOpenings() {
     return num;
 }
 
-void Rat::setOpenTimesFromString(std::string in) {
+void Rat::setOpenTimes(std::string in) {
     std::replace(in.begin(),in.end(),',',' ');
     std::stringstream inStream(in);
     int i;
@@ -75,7 +75,7 @@ void Rat::setOpenTimesFromString(std::string in) {
     setOpenDay();
 }
 
-void Rat::setOpenTimesFromVect(std::vector<int> in) {
+void Rat::setOpenTimes(std::vector<int> in) {
     for(size_t index = 0; index < in.size();index++)
     {
         openTimes.push_back(in[index]);
