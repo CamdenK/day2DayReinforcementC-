@@ -3,7 +3,7 @@
 //
 
 #include "Trial.h"
-Trial::Trial():numRats(16),experimentLength(12),condition("") {
+Trial::Trial():numRats(0),experimentLength(12),condition("") {
 
 }
 
@@ -15,12 +15,12 @@ size_t Trial::totalConsecutiveOpenings() {
     size_t out = 0;
     for(size_t index = 0; index < rats.size();index++)
     {
-        out += rats[index]->consecutiveOpenings();
+        out += rats[index]->numConsecutiveOpenings();
     }
     return out;
 }
 
-size_t Trial::totalOpenings() {
+size_t Trial::totalNumOpenings() {
     size_t out = 0;
     for(size_t index = 0; index < rats.size(); index++)
     {
@@ -33,7 +33,6 @@ size_t Trial::numOpeners() {
     size_t out = 0;
     for(size_t index = 0; index < rats.size(); index++)
     {
-
         if(rats[index]->isOpener())
         {
             out++;
@@ -76,3 +75,31 @@ Trial::~Trial() {
     }
 }
 
+size_t Trial::getNumRats() {
+    return numRats;
+}
+
+void Trial::addRat(string data){
+    rats.push_back(new Rat(experimentLength,condition,data));
+    numRats = rats.size();
+}
+
+size_t Trial::getExperimentLength() {
+    return experimentLength;
+}
+
+size_t Trial::numOpensInDay(size_t day) {
+    size_t out = 0;
+    for(size_t rat = 0; rat < numRats;rat++)
+    {
+        if(rats[rat]->opensOnDate(day))
+        {
+            out++;
+        }
+    }
+    return out;
+}
+
+size_t Trial::totalOpensByOneRat(size_t rat) {
+    return rats[rat]->numOpenings();
+}

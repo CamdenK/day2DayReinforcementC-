@@ -34,17 +34,22 @@ public:
     //constructor with all fields. string must be delimted by commas for openTimes
     Rat(size_t expLength, std::string cond, std::string time);
 
-    //returns whether or not the rat is an opener
-    bool isOpener() const;
+    //copy ctor
+    Rat(const Rat &rhs);
 
-    //get number of consecutive openings
-    size_t consecutiveOpenings();
+    //accessors:
+    //gets the condition for the rat
+    string getCondition(){return condition;};
 
+    //gets openDay
+    int getOpenDay(){return openDay;};
+
+    //get openTimes
+    vector<int> getOpenTimes(){return openTimes;};
+
+    //mutators:
     //sets the experiment length
     void setExperimentLength(size_t newLength);
-
-    //get number of openings
-    size_t numOpenings();
 
     //set the openTimes from a comma delimited string
     void setOpenTimesFromString(std::string in);
@@ -55,9 +60,17 @@ public:
     //sets the condition for the rat
     void setCondition(string cond);
 
-    //gets the condition for the rat
-    string getCondition(){return condition;};
 
-    //copy ctor
-    Rat(const Rat &rhs);
+
+    //returns whether or not the rat is an opener
+    bool isOpener() const;
+
+    //get number of consecutive openings
+    size_t numConsecutiveOpenings();
+
+    //get number of openings
+    size_t numOpenings();
+
+    //returns if rat opens on specific day of trial
+    bool opensOnDate(size_t day);
 };

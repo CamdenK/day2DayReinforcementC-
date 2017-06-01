@@ -38,18 +38,45 @@ public:
     //assignment operator
     const Trial& operator = (const Trial& rhs);
 
-    //gets the total number of consecutive openings for all rats
-    size_t totalConsecutiveOpenings();
+    //ACCESSORS:
+    //gets numRats
+    size_t getNumRats();
 
-    //gets the total number of openings for all rats
-    size_t totalOpenings();
+    //gets experimentLength
+    size_t getExperimentLength();
 
-    //gets number of openers for rats
-    size_t numOpeners();
+    //gets condition
+    string getCondition(){return condition;};
+
+    //gets vector of rats
+    vector<Rat*> getRats(){return rats;};
+
+    //MUTATORS:
+    //sets rats with comma delimited information
+    void setRats(string input);
+
+    //add a rat
+    void addRat(string data);
 
     //sets condition of trial and changes condition for all rats
     void setCondition(string cond);
 
-    //sets rats with comma delimited information
-    void setRats(string input);
+    //sets the experimentLength
+    void setExperimentLength(size_t length){experimentLength = length;};
+
+    //OTHER:
+    //gets the total number of consecutive openings for all rats
+    size_t totalConsecutiveOpenings();
+
+    //gets the total number of openings for all rats
+    size_t totalNumOpenings();
+
+    //gets number of openers for rats
+    size_t numOpeners();
+
+    //returns number of openings in one day
+    size_t numOpensInDay(size_t day);
+
+    //returns number of times one rat opens
+    size_t totalOpensByOneRat(size_t rat);
 };

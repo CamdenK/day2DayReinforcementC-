@@ -31,7 +31,7 @@ bool Rat::isOpener() const {
     return true;
 }
 
-size_t Rat::consecutiveOpenings()  {
+size_t Rat::numConsecutiveOpenings()  {
     size_t num = 0;
     for(std::vector<int>::iterator it = openTimes.begin(); it +1 != openTimes.end(); it++)
     {
@@ -109,4 +109,12 @@ Rat::Rat(const Rat &rhs):experimentLength(rhs.experimentLength),openDay(rhs.open
     {
         openTimes.push_back(rhs.openTimes[index]);
     }
+}
+
+bool Rat::opensOnDate(size_t day) {
+    if(day < 1 || day > experimentLength)
+    {
+        throw invalid_argument("Day not tested");
+    }
+    return openTimes[day - 1] != experimentLength;
 }
