@@ -13,17 +13,62 @@ vector<double> iteration(vector<double> dayDifference, vector<double> ratDiffere
 //calculate sequential open probability for data of 1's and 0's where 1 is open, 0 is non open
 double sequentialOpeningProb(vector<int> openData);
 
+void day2DayReinforcement();
+
 int main() {
+    day2DayReinforcement();
+}
+void bootstrap()
+{
     string fileName = getFileName();
     ifstream input;
     input.open(fileName);
-    size_t numIterations;
+    size_t rawIterations = 100;
+
+    size_t numIterations, bootSize, experimentLength;
+    cout<<"How many iterations?";
+    cin>>numIterations;
+    cout<<"How many samples in bootstrap out of total?";
+    cin>>bootSize;
+    cout<<"When does the experiment (minutes)";
+    cin>>experimentLength;
+    Trial temp;
+    Trial run = readInput(temp, &input);
+    run.setExperimentLength(experimentLength);
+
+    vector<double> dayDifference;
+    vector<double> ratDifference;
+
+    for(size_t day = 1; day <= run.getExperimentLength();day++)
+    {
+        dayDifference.push_back(double(run.numOpensInDay(day))/ run.totalNumOpenings());
+    }
+    for(size_t rat = 0; rat < run.getNumRats();rat++)
+    {
+        ratDifference.push_back(double(run.totalOpensByOneRat(rat))/ run.totalNumOpenings());
+    }
+
+    Trial randSelected;
+    for(size_t iter = 0; iter < rawIterations; iter++)
+    {
+
+    }
+}
+
+void day2DayReinforcement()
+{
+    string fileName = getFileName();
+    ifstream input;
+    input.open(fileName);
+    size_t numIterations, endTime;
 
     cout<<"How many iterations?";
     cin>>numIterations;
+    cout<<"When does the experiment end in minutes?";
+    cin>>endTime;
     Trial temp;
     Trial run = readInput(temp,&input);
-
+    run.setExperimentLength(endTime);
 
     vector<double> dayDifference;
     vector<double> ratDifference;
@@ -54,7 +99,7 @@ int main() {
             numExtreme++;
         }
     }
-    
+
     cout<<"P - value:"<<(double) numExtreme / numIterations<<endl;
 }
 
@@ -126,4 +171,19 @@ double sequentialOpeningProb(vector<int> openData)
         numOpens++;
     }
     return (double)numOpens/sequentialOpens;
+}
+vector<int> generateRandIntArray(int start, int end)
+{
+    vector<int> out;
+    int switcher;
+    for(int index = start; index <= end; index++)
+    {
+        out.push_back(index);
+    }
+    for(int index = out.size()-1; index > 0; index--)
+    {
+        switcher = rand() %(index-1);
+        std::swap(out[index],out[switcher]);
+    }
+    return out;
 }

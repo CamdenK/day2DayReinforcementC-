@@ -103,3 +103,16 @@ size_t Trial::numOpensInDay(size_t day) {
 size_t Trial::totalOpensByOneRat(size_t rat) {
     return rats[rat]->numOpenings();
 }
+
+vector<size_t> Trial::getOpenerDates(){
+    vector<size_t> out;
+    for(size_t rat = 0; rat<numRats; rat++)
+    {
+        out.push_back(rats[rat]->getOpenDay());
+    }
+    return out;
+}
+
+Rat Trial::getRat(size_t ratNum) {
+    return *rats[ratNum];
+}

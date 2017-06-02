@@ -58,8 +58,6 @@ public:
     //sets the condition for the rat
     void setCondition(string cond);
 
-
-
     //returns whether or not the rat is an opener
     bool isOpener() const;
 

@@ -79,6 +79,12 @@ public:
 
     //returns number of times one rat opens
     size_t totalOpensByOneRat(size_t rat);
+
+    //returns vector of all days that rats became openers
+    vector<size_t> getOpenerDates();
+
+    //returns a rat by index 0 index
+    Rat getRat(size_t ratNum);
 };
 
 #endif
