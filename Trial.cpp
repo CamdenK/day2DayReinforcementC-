@@ -3,7 +3,7 @@
 //
 
 #include "Trial.h"
-Trial::Trial():numRats(0),experimentLength(12),condition(""),rats(0) {
+Trial::Trial():numRats(0),experimentLength(12),condition("") {
 
 }
 

@@ -5,7 +5,7 @@
 #include "Trial.h"
 
 std::string getFileName();
-Trial readInput(Trial orig, std::ifstream file);
+Trial readInput(Trial orig, ifstream* file);
 
 //for each iteration returns a double of probability of sequential opening
 vector<double> iteration(vector<double> dayDifference, vector<double> ratDifference, Trial run, size_t numIterations);
@@ -16,19 +16,21 @@ double sequentialOpeningProb(vector<int> openData);
 int main() {
     string fileName = getFileName();
     ifstream input;
+    input.open(fileName);
     size_t numIterations;
 
     cout<<"How many iterations?";
     cin>>numIterations;
     Trial temp;
-    Trial run = readInput(temp,input);
+    Trial run = readInput(temp,&input);
+
 
     vector<double> dayDifference;
     vector<double> ratDifference;
 
-    for(size_t index = 0; index < run.getExperimentLength();index++)
+    for(size_t day = 1; day <= run.getExperimentLength();day++)
     {
-        dayDifference.push_back(double(run.numOpensInDay(index))/ run.totalNumOpenings());
+        dayDifference.push_back(double(run.numOpensInDay(day))/ run.totalNumOpenings());
     }
     for(size_t rat = 0; rat < run.getNumRats();rat++)
     {
@@ -37,7 +39,7 @@ int main() {
 
     vector<double> iterationProbability =(iteration(dayDifference,ratDifference,run,numIterations));
 
-    double origProb = run.totalConsecutiveOpenings()/run.totalNumOpenings();
+    double origProb = (double)run.totalConsecutiveOpenings()/run.totalNumOpenings();
     double averageItProb = accumulate(iterationProbability.begin(), iterationProbability.end(), 0.0) / iterationProbability.size();
 
     cout<<"Probability of sequential opening for original data: " << origProb <<endl;
@@ -52,7 +54,7 @@ int main() {
             numExtreme++;
         }
     }
-
+    
     cout<<"P - value:"<<(double) numExtreme / numIterations<<endl;
 }
 
@@ -72,10 +74,10 @@ std::string getFileName()
     return fileName;
 }
 
-Trial readInput(Trial orig, std::ifstream file)
+Trial readInput(Trial orig, std::ifstream* file)
 {
     string line;
-    while(file>>line)
+    while(*file>>line)
     {
         orig.addRat(line);
     }
